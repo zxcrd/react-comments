@@ -1,0 +1,43 @@
+import React, { Component } from 'react'
+import './comment.scss'
+
+class Comment extends Component {
+    //要使用受控组件，必须要有state
+    state = {
+        userName:'',
+        content:'',
+    }
+   
+    submit = () => {
+        this.props.publish(this.state)    
+    }
+
+    handleChangeuser = (event) => {
+        const userName = event.target.value
+        this.setState({userName})
+    }
+
+    handleChangeContent = (event) => {
+        const content = event.target.value
+        this.setState({content})
+    }
+
+    render() { 
+        const {userName,content} = this.state
+        return ( 
+            <form>
+                <div className="form-group">
+                    <label >用户名</label>
+                    <input type="text" className="form-control userName" value={userName} onChange={this.handleChangeuser} placeholder="uername" />
+                </div>
+                <div className="form-group">
+                    <label >评论</label>
+                    <input type="text" className="form-control content" value={content} onChange={this.handleChangeContent}  placeholder="content"  />
+                </div>
+                <button type="submit" className="btn btn-default" onClick={this.submit}>提交发布</button>
+            </form>
+         );
+    }
+}
+ 
+export default Comment;
