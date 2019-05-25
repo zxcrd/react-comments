@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './app.scss'
-
+//导入组件
 import Comment from '../comment/comment'
 import CommentList from '../commentList/commentList'
 
