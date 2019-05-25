@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 export default class CommentList extends Component {
     static propTypes = {
+        //这个是声明传入的属性
         delete: PropTypes.func.isRequired,
     }
 
