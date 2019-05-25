@@ -9,6 +9,7 @@ class Comment extends Component {
     }
    
     submit = (event) => {
+        //注意取消默认行为，因为表单按钮的类型是submit,所以会有默认行为
         event.preventDefault()
         const comments = this.state
         this.props.publish(comments) 
