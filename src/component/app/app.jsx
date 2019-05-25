@@ -22,7 +22,6 @@ export default  class App  extends Component {
           const {comments} = this.state
           comments.unshift(todo)
           this.setState({comments})
-        // this.setState([{userName:'小明',content:'xxx不难'}],comments)
      }
 
      delete = (id) => {
