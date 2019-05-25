@@ -8,8 +8,15 @@ class Comment extends Component {
         content:'',
     }
    
-    submit = () => {
-        this.props.publish(this.state)    
+    submit = (event) => {
+        event.preventDefault()
+        const comments = this.state
+        this.props.publish(comments) 
+        //数据提交到父组件成功后 ，把input中的数据清空
+        this.setState({
+            userName:'',
+            content:'',
+        }) 
     }
 
     handleChangeuser = (event) => {
@@ -28,7 +35,7 @@ class Comment extends Component {
             <form>
                 <div className="form-group">
                     <label >用户名</label>
-                    <input type="text" className="form-control userName" value={userName} onChange={this.handleChangeuser} placeholder="uername" />
+                    <input type="text" className="form-control userName" value={userName} onChange={this.handleChangeuser} placeholder="username" />
                 </div>
                 <div className="form-group">
                     <label >评论</label>

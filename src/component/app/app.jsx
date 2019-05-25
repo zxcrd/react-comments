@@ -22,6 +22,13 @@ export default  class App  extends Component {
           const {comments} = this.state
           comments.unshift(todo)
           this.setState({comments})
+        // this.setState([{userName:'小明',content:'xxx不难'}],comments)
+     }
+
+     delete = (id) => {
+        const {comments} = this.state
+        comments.splice(id,1)
+        this.setState({comments})
      }
 
     render() { 
@@ -30,7 +37,7 @@ export default  class App  extends Component {
             <div>
                 <div className='banner'>请发表对XXX的评论</div>
                 <Comment publish={this.publish} />
-                <CommentList comments={comments}/>
+                <CommentList comments={comments} delete = {this.delete}/>
             </div>
          )
     }
